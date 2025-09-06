@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\projects\\APIs\\S6\\S6Blog\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{98872FBD-F976-4BFA-82EA-E89EE211DA2C}|Blog.Infrastructure\\Blog.Infrastructure.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.infrastructure\\migrations\\20250903173546_addposttable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98872FBD-F976-4BFA-82EA-E89EE211DA2C}|Blog.Infrastructure\\Blog.Infrastructure.csproj|solutionrelative:blog.infrastructure\\migrations\\20250903173546_addposttable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98872FBD-F976-4BFA-82EA-E89EE211DA2C}|Blog.Infrastructure\\Blog.Infrastructure.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98872FBD-F976-4BFA-82EA-E89EE211DA2C}|Blog.Infrastructure\\Blog.Infrastructure.csproj|solutionrelative:blog.infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.core\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|solutionrelative:blog.core\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA17033-754E-4AFB-AAA8-47BF3898F49F}|Blog.APIs\\Blog.APIs.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.apis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBA17033-754E-4AFB-AAA8-47BF3898F49F}|Blog.APIs\\Blog.APIs.csproj|solutionrelative:blog.apis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA17033-754E-4AFB-AAA8-47BF3898F49F}|Blog.APIs\\Blog.APIs.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.apis\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BBA17033-754E-4AFB-AAA8-47BF3898F49F}|Blog.APIs\\Blog.APIs.csproj|solutionrelative:blog.apis\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250903173546_AddPostTable.cs",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Migrations\\20250903173546_AddPostTable.cs",
+              "RelativeDocumentMoniker": "Blog.Infrastructure\\Migrations\\20250903173546_AddPostTable.cs",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Migrations\\20250903173546_AddPostTable.cs",
+              "RelativeToolTip": "Blog.Infrastructure\\Migrations\\20250903173546_AddPostTable.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwCEAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T17:35:47.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Post.cs",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Models\\Post.cs",
+              "RelativeDocumentMoniker": "Blog.Core\\Models\\Post.cs",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Models\\Post.cs",
+              "RelativeToolTip": "Blog.Core\\Models\\Post.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T17:21:58.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.APIs\\Program.cs",
+              "RelativeDocumentMoniker": "Blog.APIs\\Program.cs",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.APIs\\Program.cs",
+              "RelativeToolTip": "Blog.APIs\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T17:15:32.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.APIs\\appsettings.json",
+              "RelativeDocumentMoniker": "Blog.APIs\\appsettings.json",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.APIs\\appsettings.json",
+              "RelativeToolTip": "Blog.APIs\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-03T17:11:23.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Blog.Infrastructure\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Blog.Infrastructure\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T17:05:01.642Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
