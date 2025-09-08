@@ -9,3 +9,4 @@ D:\projects\APIs\S6\S6Blog\Blog.Core\obj\Debug\net8.0\Blog.Core.dll
 D:\projects\APIs\S6\S6Blog\Blog.Core\obj\Debug\net8.0\refint\Blog.Core.dll
 D:\projects\APIs\S6\S6Blog\Blog.Core\obj\Debug\net8.0\Blog.Core.pdb
 D:\projects\APIs\S6\S6Blog\Blog.Core\obj\Debug\net8.0\ref\Blog.Core.dll
+D:\projects\APIs\S6\S6Blog\Blog.Core\obj\Debug\net8.0\Blog.Core.sourcelink.json
