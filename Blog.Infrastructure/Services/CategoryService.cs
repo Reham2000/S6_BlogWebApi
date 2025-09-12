@@ -1,4 +1,5 @@
-﻿using Blog.Core.Interfaces;
+﻿using Blog.Core.DTos;
+using Blog.Core.Interfaces;
 using Blog.Core.Models;
 using Blog.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -36,26 +37,56 @@ namespace Blog.Infrastructure.Services
             });
             return Categories;
         }
-        public Task<Category> GetByIdAsync(int id)
+        public async Task<Category> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Categories.FindAsync(id);
+            //return await _context.Categories.FirstAsync(c => c.CatId == id);
+            //return await _context.Categories.LastAsync(c => c.CatId == id);
+            //return await _context.Categories.FirstOrDefaultAsync(c => c.CatId == id);
+            //return await _context.Categories.LastOrDefaultAsync(c => c.CatId == id);
+            //return await _context.Categories.SingleAsync(c => c.CatId == id);
+            //return await _context.Categories.SingleOrDefaultAsync(c => c.CatId == id);
+
         }
-        public Task<Category> CreateAsync(Category category)
+        public async Task<Category> CreateAsync(CategoryDTo category)
         {
-            throw new NotImplementedException();
+            var Category = new Category
+            {
+                Name = category.Name,
+            };
+            await _context.Categories.AddAsync(Category);
+            await _context.SaveChangesAsync();
+            return Category;
         }
-        public Task<bool> UpdateAsync(int id, Category category)
+        public async Task<bool> UpdateAsync(int id, CategoryDTo category)
         {
-            throw new NotImplementedException();
+            var OldCategory = await GetByIdAsync(id);
+            if (OldCategory is null)
+                return false;
+            OldCategory.Name = category.Name;
+            _context.Categories.Update(OldCategory);
+            await _context.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> UpdateAsync(Category category)
+        public async Task<bool> UpdateAsync(CategoryDTo category)
         {
-            throw new NotImplementedException();
+            var OldCategory = await GetByIdAsync(category.CatId);
+            if (OldCategory is null)
+                return false;
+            OldCategory.Name = category.Name;
+            _context.Categories.Update(OldCategory);
+            await _context.SaveChangesAsync();
+            return true;
         }
-        public Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var Category = await GetByIdAsync(id);
+            if (Category is null)
+                return false;
+            _context.Categories.Remove(Category);
+            await _context.SaveChangesAsync();
+            return true;
         }
 
 
