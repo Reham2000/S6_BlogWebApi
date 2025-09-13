@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "D:\\projects\\APIs\\S6\\S6Blog\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.core\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|solutionrelative:blog.core\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBA17033-754E-4AFB-AAA8-47BF3898F49F}|Blog.APIs\\Blog.APIs.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.apis\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBA17033-754E-4AFB-AAA8-47BF3898F49F}|Blog.APIs\\Blog.APIs.csproj|solutionrelative:blog.apis\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98872FBD-F976-4BFA-82EA-E89EE211DA2C}|Blog.Infrastructure\\Blog.Infrastructure.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.infrastructure\\services\\genaricreposatory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98872FBD-F976-4BFA-82EA-E89EE211DA2C}|Blog.Infrastructure\\Blog.Infrastructure.csproj|solutionrelative:blog.infrastructure\\services\\genaricreposatory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.core\\interfaces\\igenaricreposatory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|solutionrelative:blog.core\\interfaces\\igenaricreposatory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{98872FBD-F976-4BFA-82EA-E89EE211DA2C}|Blog.Infrastructure\\Blog.Infrastructure.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.infrastructure\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98872FBD-F976-4BFA-82EA-E89EE211DA2C}|Blog.Infrastructure\\Blog.Infrastructure.csproj|solutionrelative:blog.infrastructure\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.core\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|solutionrelative:blog.core\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BBA17033-754E-4AFB-AAA8-47BF3898F49F}|Blog.APIs\\Blog.APIs.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.apis\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBA17033-754E-4AFB-AAA8-47BF3898F49F}|Blog.APIs\\Blog.APIs.csproj|solutionrelative:blog.apis\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.core\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|solutionrelative:blog.core\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|solutionrelative:blog.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.core\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A090212-752D-4F27-9EB8-76C0D393CB4E}|Blog.Core\\Blog.Core.csproj|solutionrelative:blog.core\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBA17033-754E-4AFB-AAA8-47BF3898F49F}|Blog.APIs\\Blog.APIs.csproj|d:\\projects\\apis\\s6\\s6blog\\blog.apis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,45 +38,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 226,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Blog.Core\\Models\\User.cs",
-              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Models\\User.cs",
-              "RelativeToolTip": "Blog.Core\\Models\\User.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAxwBUAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:52:46.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CategoryDTo.cs",
-              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\DTos\\CategoryDTo.cs",
-              "RelativeDocumentMoniker": "Blog.Core\\DTos\\CategoryDTo.cs",
-              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\DTos\\CategoryDTo.cs",
-              "RelativeToolTip": "Blog.Core\\DTos\\CategoryDTo.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAkwAoAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:54:50.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Category.cs",
-              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "Blog.Core\\Models\\Category.cs",
-              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Models\\Category.cs",
-              "RelativeToolTip": "Blog.Core\\Models\\Category.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwA0AAAAnAAAAAAAAAA==",
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "Blog.Infrastructure\\Services\\CategoryService.cs",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Services\\CategoryService.cs",
+              "RelativeToolTip": "Blog.Infrastructure\\Services\\CategoryService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBcAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T16:51:15.058Z",
+              "WhenOpened": "2025-09-13T13:36:54.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PostDTo.cs",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\DTos\\PostDTo.cs",
+              "RelativeDocumentMoniker": "Blog.Core\\DTos\\PostDTo.cs",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\DTos\\PostDTo.cs",
+              "RelativeToolTip": "Blog.Core\\DTos\\PostDTo.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAYwBcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T12:48:33.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PostsController.cs",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.APIs\\Controllers\\PostsController.cs",
+              "RelativeDocumentMoniker": "Blog.APIs\\Controllers\\PostsController.cs",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.APIs\\Controllers\\PostsController.cs",
+              "RelativeToolTip": "Blog.APIs\\Controllers\\PostsController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAzwE0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T12:46:54.758Z",
               "EditorCaption": ""
             },
             {
@@ -87,48 +87,48 @@
               "RelativeDocumentMoniker": "Blog.APIs\\Program.cs",
               "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.APIs\\Program.cs",
               "RelativeToolTip": "Blog.APIs\\Program.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T15:52:44.596Z",
+              "WhenOpened": "2025-09-13T11:44:45.628Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.APIs\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "Blog.APIs\\Controllers\\CategoriesController.cs",
               "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.APIs\\Controllers\\CategoriesController.cs",
               "RelativeToolTip": "Blog.APIs\\Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAwM0AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAuwJAAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T15:29:35.9Z",
+              "WhenOpened": "2025-09-13T11:37:25.537Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CategoryService.cs",
-              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Services\\CategoryService.cs",
-              "RelativeDocumentMoniker": "Blog.Infrastructure\\Services\\CategoryService.cs",
-              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Services\\CategoryService.cs",
-              "RelativeToolTip": "Blog.Infrastructure\\Services\\CategoryService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAFEAAAAzAAAAAAAAAA==",
+              "Title": "GenaricReposatory.cs",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Services\\GenaricReposatory.cs",
+              "RelativeDocumentMoniker": "Blog.Infrastructure\\Services\\GenaricReposatory.cs",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Infrastructure\\Services\\GenaricReposatory.cs",
+              "RelativeToolTip": "Blog.Infrastructure\\Services\\GenaricReposatory.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAADgvyMAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T13:39:42.779Z",
+              "WhenOpened": "2025-09-13T11:26:11.682Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ICategoryService.cs",
-              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Interfaces\\ICategoryService.cs",
-              "RelativeDocumentMoniker": "Blog.Core\\Interfaces\\ICategoryService.cs",
-              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Interfaces\\ICategoryService.cs",
-              "RelativeToolTip": "Blog.Core\\Interfaces\\ICategoryService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAuwAwAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "IGenaricReposatory.cs",
+              "DocumentMoniker": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Interfaces\\IGenaricReposatory.cs",
+              "RelativeDocumentMoniker": "Blog.Core\\Interfaces\\IGenaricReposatory.cs",
+              "ToolTip": "D:\\projects\\APIs\\S6\\S6Blog\\Blog.Core\\Interfaces\\IGenaricReposatory.cs",
+              "RelativeToolTip": "Blog.Core\\Interfaces\\IGenaricReposatory.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T13:29:27.556Z",
+              "WhenOpened": "2025-09-13T11:16:45.532Z",
               "EditorCaption": ""
             }
           ]
@@ -137,6 +137,10 @@
           "DockedWidth": 1153,
           "SelectedChildIndex": -1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"

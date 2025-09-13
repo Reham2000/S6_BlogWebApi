@@ -3,91 +3,82 @@ using Blog.Core.Interfaces;
 using Blog.Core.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Blog.APIs.Controllers
 {
-    // root URl => https://localhost:7080
-    // Base URl => Root + Route -> https://localhost:7080/api/Categories
-    // spatial URl =>  https://localhost:7080/api/Categories/MyPosts/3
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
         // DI
-        private readonly ICategoryService _categoryService;
-        public CategoriesController (ICategoryService categoryService)
+        private readonly IGenaricReposatory<Category> _category;
+        public CategoriesController(IGenaricReposatory<Category> category)
         {
-            _categoryService = categoryService;
+            _category = category;
         }
 
-        // Request Method
-        [HttpGet] // https://localhost:7080/api/Categories
-        public async Task<IActionResult> Get()
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
         {
             try
             {
-                var Categories = await _categoryService.GetAllAsync();
+                var Categories = await _category.GetAllAsync();
                 if (Categories is null || !Categories.Any())
                     return NotFound(new
                     {
-                        Message = "No Categories Found",
                         StatusCode = StatusCodes.Status404NotFound,
-                        Data = new List<Category>(),
+                        Message = "Categories Not Found",
+                        Data = new List<Category>()
                     });
                 return Ok(new
                 {
-                    message ="Categories Retrived Successfully!",
                     StatusCode = StatusCodes.Status200OK,
-                    Data = Categories,
+                    Message = "Categories retrived successfully",
+                    Data = Categories
                 });
-
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
-                return BadRequest(new
+                return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    Message = "An Error Occures while retriving Categories!",
-                    Error = ex.Message,
-
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "An Error Occuered While Retriving data",
+                    Error = ex.Message
                 });
             }
-
         }
-        [HttpGet("{id}")] // https://localhost:7080/api/Categories/{id}
+
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             try
             {
-                var Category = await _categoryService.GetByIdAsync(id);
+                var Category = await _category.GetByIdAsync(id);
                 if (Category is null)
                     return NotFound(new
                     {
                         StatusCode = StatusCodes.Status404NotFound,
-                        Message = $"Category With Id {id} Not Found",
+                        Message = $"Category with id {id} Not Found"
                     });
                 return Ok(new
                 {
-                    StatusCode = StatusCodes.Status200OK,
-                    Message = "Category Retrived Successfully!",
+                    StatusCode = StatusCodes.Status302Found,
+                    Message = "Categorr retrived Successfully",
                     Data = Category
                 });
-
-
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
-                return BadRequest(new
+                return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    Message = "An Error Occures while retriving Categories!",
-                    Error = ex.Message,
-
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "An Error Occuered While Retriving data",
+                    Error = ex.Message
                 });
             }
         }
 
-
         [HttpPost]
-        public async Task<IActionResult> Add(CategoryDTo category)
+        public async Task<IActionResult> Create(CategoryDTo categoryDTo)
         {
             try
             {
@@ -96,108 +87,56 @@ namespace Blog.APIs.Controllers
                     {
                         StatusCode = StatusCodes.Status400BadRequest,
                         Message = "Invalid Category Data",
-                        Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage),
+                        Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
                     });
-                await _categoryService.CreateAsync(category);
-                return StatusCode(StatusCodes.Status201Created, new
+                var Category = new Category
                 {
-                    StatusCode = StatusCodes.Status201Created,
-                    Message = "Caategory Created Successfully"
-                });
-
-
-
-
-            }catch(Exception ex)
-            {
-                return BadRequest(new
+                    Name = categoryDTo.Name,
+                };
+                await _category.CreateAsync(Category);
+                await _category.SaveAsync();
+                return StatusCode(201, new
                 {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    Message = "An Error Occures while Creating Categories!",
-                    Error = ex.Message,
-
+                    StatusCode = 201,
+                    Message = "Category Created Successfully",
                 });
             }
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id , CategoryDTo category)
-        {
-            try
+            catch (Exception ex)
             {
-                var OldCategory = await _categoryService.GetByIdAsync(id);
-                if (OldCategory is null)
-                    return BadRequest(new
-                    {
-                        StatusCode = StatusCodes.Status400BadRequest,
-                        Message = "Category Id Missmatch"
-                    });
-
-                var result = await _categoryService.UpdateAsync(id,category);
-                if (result)
-                    return Ok(new
-                    {
-                        StatusCode = StatusCodes.Status200OK,
-                        Message = "Category Updated successfully"
-                    });
-                else
-                    return Ok(new
-                    {
-                        StatusCode = StatusCodes.Status200OK,
-                        Message = "Category Not Updated "
-                    });
-
-
-            }
-            catch(Exception ex)
-            {
-                return BadRequest(new
+                return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    Message = "An Error Occures while updating Categories!",
-                    Error = ex.Message,
-
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "An Error Occuered While Retriving data",
+                    Error = ex.Message
                 });
             }
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(CategoryDTo category)
+        public async Task<IActionResult> Update(CategoryDTo categoryDTo)
         {
             try
             {
-                var OldCategory = await _categoryService.GetByIdAsync(category.CatId);
+                var OldCategory = await _category.GetByIdAsync(categoryDTo.CatId);
                 if (OldCategory is null)
-                    return BadRequest(new
+                    return NotFound(new
                     {
-                        StatusCode = StatusCodes.Status400BadRequest,
-                        Message = "Category Id Missmatch"
-                    });
+                        StatusCode = StatusCodes.Status404NotFound,
+                        Message = $"Category With Id {categoryDTo.CatId} Not Found",
 
-                var result = await _categoryService.UpdateAsync(category);
-                if (result)
-                    return Ok(new
-                    {
-                        StatusCode = StatusCodes.Status200OK,
-                        Message = "Category Updated successfully"
                     });
-                else
-                    return Ok(new
-                    {
-                        StatusCode = StatusCodes.Status200OK,
-                        Message = "Category Not Updated "
-                    });
-
-
+                OldCategory.Name = categoryDTo.Name;
+                _category.Update(OldCategory);
+                await _category.SaveAsync();
+                return NoContent();
             }
             catch (Exception ex)
             {
-                return BadRequest(new
+                return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    Message = "An Error Occures while updating Categories!",
-                    Error = ex.Message,
-
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "An Error Occuered While Retriving data",
+                    Error = ex.Message
                 });
             }
         }
@@ -207,27 +146,24 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var result = await _categoryService.DeleteAsync(id);
-                if (result)
-                    return Ok(new
-                    {
-                        StatusCode = StatusCodes.Status200OK,
-                        Message = "Category Deleted Successfully"
-                    });
-                else
+                var Category = await _category.GetByIdAsync(id);
+                if (Category is null)
                     return NotFound(new
                     {
                         StatusCode = StatusCodes.Status404NotFound,
-                        Message = $"Category With ID {id} Not Found"
+                        Message = "Category Not Found"
                     });
-            }catch(Exception ex)
+                _category.Delete(Category);
+                await _category.SaveAsync();
+                return NoContent();
+            }
+            catch (Exception ex)
             {
-                return BadRequest(new
+                return StatusCode(StatusCodes.Status500InternalServerError, new
                 {
-                    StatusCode = StatusCodes.Status400BadRequest,
-                    Message = "An Error Occures while Deleting Categories!",
-                    Error = ex.Message,
-
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "An Error Occuered While Retriving data",
+                    Error = ex.Message
                 });
             }
         }

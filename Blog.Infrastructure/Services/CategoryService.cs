@@ -21,11 +21,11 @@ namespace Blog.Infrastructure.Services
         }
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
-            //var Categories = await _context.Categories.ToListAsync();
-            var Categories =  _context.Categories.Select(cat => new Category
-            {
-                Name = cat.Name
-            });
+            var Categories = await _context.Categories.ToListAsync();
+            //var Categories =  _context.Categories.Select(cat => new Category
+            //{
+            //    Name = cat.Name
+            //});
             return Categories;
         }
         public async Task<IEnumerable<Object>> GetAllAsync2()

@@ -20,6 +20,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // DI
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped(typeof(IGenaricReposatory<>), typeof(GenaricReposatory<>));
 
 var app = builder.Build();
 
