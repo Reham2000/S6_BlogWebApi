@@ -261,3 +261,5 @@ D:\projects\APIs\S6\S6Blog\Blog.APIs\bin\Debug\net8.0\runtimes\win\lib\net7.0\Mi
 D:\projects\APIs\S6\S6Blog\Blog.APIs\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\projects\APIs\S6\S6Blog\Blog.APIs\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\projects\APIs\S6\S6Blog\Blog.APIs\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\projects\APIs\S6\S6Blog\Blog.APIs\bin\Debug\net8.0\Castle.Core.dll
+D:\projects\APIs\S6\S6Blog\Blog.APIs\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Proxies.dll

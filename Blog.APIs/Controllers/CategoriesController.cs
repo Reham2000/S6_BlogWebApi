@@ -12,18 +12,22 @@ namespace Blog.APIs.Controllers
     public class CategoriesController : ControllerBase
     {
         // DI
-        private readonly IGenaricReposatory<Category> _category;
-        public CategoriesController(IGenaricReposatory<Category> category)
+        //private readonly IGenaricReposatory<Category> _category;
+        //public CategoriesController(IGenaricReposatory<Category> category)
+        //{
+        //    _category = category;
+        //}
+        private readonly IUnitOfWork _unitOfWork;
+        public CategoriesController(IUnitOfWork unitOfWork)
         {
-            _category = category;
+            _unitOfWork = unitOfWork;
         }
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             try
             {
-                var Categories = await _category.GetAllAsync();
+                var Categories = await _unitOfWork.Categories.GetAllAsync();
                 if (Categories is null || !Categories.Any())
                     return NotFound(new
                     {
@@ -53,7 +57,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var Category = await _category.GetByIdAsync(id);
+                var Category = await _unitOfWork.Categories.GetByIdAsync(id);
                 if (Category is null)
                     return NotFound(new
                     {
@@ -93,8 +97,8 @@ namespace Blog.APIs.Controllers
                 {
                     Name = categoryDTo.Name,
                 };
-                await _category.CreateAsync(Category);
-                await _category.SaveAsync();
+                await _unitOfWork.Categories.CreateAsync(Category);
+                await _unitOfWork.SaveAsync();
                 return StatusCode(201, new
                 {
                     StatusCode = 201,
@@ -117,7 +121,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var OldCategory = await _category.GetByIdAsync(categoryDTo.CatId);
+                var OldCategory = await _unitOfWork.Categories.GetByIdAsync(categoryDTo.CatId);
                 if (OldCategory is null)
                     return NotFound(new
                     {
@@ -126,8 +130,8 @@ namespace Blog.APIs.Controllers
 
                     });
                 OldCategory.Name = categoryDTo.Name;
-                _category.Update(OldCategory);
-                await _category.SaveAsync();
+                _unitOfWork.Categories.Update(OldCategory);
+                await _unitOfWork.SaveAsync();
                 return NoContent();
             }
             catch (Exception ex)
@@ -146,15 +150,15 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var Category = await _category.GetByIdAsync(id);
+                var Category = await _unitOfWork.Categories.GetByIdAsync(id);
                 if (Category is null)
                     return NotFound(new
                     {
                         StatusCode = StatusCodes.Status404NotFound,
                         Message = "Category Not Found"
                     });
-                _category.Delete(Category);
-                await _category.SaveAsync();
+                _unitOfWork.Categories.Delete(Category);
+                await _unitOfWork.SaveAsync();
                 return NoContent();
             }
             catch (Exception ex)

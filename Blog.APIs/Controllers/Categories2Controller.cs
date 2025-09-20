@@ -14,19 +14,23 @@ namespace Blog.APIs.Controllers
     public class Categories2Controller : ControllerBase
     {
         // DI
-        private readonly ICategoryService _categoryService;
-        public Categories2Controller (ICategoryService categoryService)
+        //private readonly ICategoryService _categoryService;
+        //public Categories2Controller (ICategoryService categoryService)
+        //{
+        //    _categoryService = categoryService;
+        //}
+        private readonly IUnitOfWork _unitOfWork;
+        public Categories2Controller(IUnitOfWork unitOfWork)
         {
-            _categoryService = categoryService;
+            _unitOfWork = unitOfWork;
         }
-
         // Request Method
         [HttpGet] // https://localhost:7080/api/Categories
         public async Task<IActionResult> Get()
         {
             try
             {
-                var Categories = await _categoryService.GetAllAsync();
+                var Categories = await _unitOfWork.CategoryService.GetAllAsync();
                 if (Categories is null || !Categories.Any())
                     return NotFound(new
                     {
@@ -38,7 +42,19 @@ namespace Blog.APIs.Controllers
                 {
                     message ="Categories Retrived Successfully!",
                     StatusCode = StatusCodes.Status200OK,
-                    Data = Categories,
+                    Data = Categories.Select(category => new 
+                    {
+                        CatId = category.CatId,
+                        Name = category.Name,
+                        Posts = category.Posts.Select(p => new 
+                        {
+                           PostId = p.Id,
+                           PostTitle = p.Title,
+                           PostContent = p.Content,
+                           PostDate = p.CreatedAt,
+                           UserId = p.UserId
+                        })
+                    } ),
                 });
 
             }catch(Exception ex)
@@ -58,7 +74,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var Category = await _categoryService.GetByIdAsync(id);
+                var Category = await _unitOfWork.CategoryService.GetByIdAsync(id);
                 if (Category is null)
                     return NotFound(new
                     {
@@ -69,7 +85,19 @@ namespace Blog.APIs.Controllers
                 {
                     StatusCode = StatusCodes.Status200OK,
                     Message = "Category Retrived Successfully!",
-                    Data = Category
+                    Data = new
+                    {
+                        CatId = Category.CatId,
+                        Name = Category.Name,
+                        Posts = Category.Posts.Select(p => new
+                        {
+                            PostId = p.Id,
+                            PostTitle = p.Title,
+                            PostContent = p.Content,
+                            PostDate = p.CreatedAt,
+                            UserId = p.UserId
+                        })
+                    }
                 });
 
 
@@ -98,7 +126,7 @@ namespace Blog.APIs.Controllers
                         Message = "Invalid Category Data",
                         Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage),
                     });
-                await _categoryService.CreateAsync(category);
+                await _unitOfWork.CategoryService.CreateAsync(category);
                 return StatusCode(StatusCodes.Status201Created, new
                 {
                     StatusCode = StatusCodes.Status201Created,
@@ -125,7 +153,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var OldCategory = await _categoryService.GetByIdAsync(id);
+                var OldCategory = await _unitOfWork.CategoryService.GetByIdAsync(id);
                 if (OldCategory is null)
                     return BadRequest(new
                     {
@@ -133,7 +161,7 @@ namespace Blog.APIs.Controllers
                         Message = "Category Id Missmatch"
                     });
 
-                var result = await _categoryService.UpdateAsync(id,category);
+                var result = await _unitOfWork.CategoryService.UpdateAsync(id,category);
                 if (result)
                     return Ok(new
                     {
@@ -166,7 +194,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var OldCategory = await _categoryService.GetByIdAsync(category.CatId);
+                var OldCategory = await _unitOfWork.CategoryService.GetByIdAsync(category.CatId);
                 if (OldCategory is null)
                     return BadRequest(new
                     {
@@ -174,7 +202,7 @@ namespace Blog.APIs.Controllers
                         Message = "Category Id Missmatch"
                     });
 
-                var result = await _categoryService.UpdateAsync(category);
+                var result = await _unitOfWork.CategoryService.UpdateAsync(category);
                 if (result)
                     return Ok(new
                     {
@@ -207,7 +235,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var result = await _categoryService.DeleteAsync(id);
+                var result = await _unitOfWork.CategoryService.DeleteAsync(id);
                 if (result)
                     return Ok(new
                     {

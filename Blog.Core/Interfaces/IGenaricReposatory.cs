@@ -11,6 +11,10 @@ namespace Blog.Core.Interfaces
     {
         // get all
         Task<IEnumerable<T>> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync(
+                Expression<Func<T,bool>> predicate = null,
+                IEnumerable<Expression<Func<T, object>>> includes = null
+            );
         // get By Id
         Task<T?> GetByIdAsync(int id);
         // Find / Search
@@ -21,6 +25,6 @@ namespace Blog.Core.Interfaces
         void Update(T entity);
         // Delete
         void Delete(T entity);
-        Task SaveAsync();
+        //Task SaveAsync();
     }
 }

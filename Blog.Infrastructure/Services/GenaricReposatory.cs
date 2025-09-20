@@ -47,11 +47,26 @@ namespace Blog.Infrastructure.Services
         {
             _dbSet.Remove(entity);
         }
-        public async Task SaveAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
 
-        
+        public async Task<IEnumerable<T>> GetAllAsync(
+            Expression<Func<T, bool>> predicate = null,
+            IEnumerable<Expression<Func<T, object>>> includes = null)
+        {
+            IQueryable<T> query = _dbSet; // my Table
+            // Select * from T
+            if(predicate is not null)
+                query = query.Where(predicate);
+            // Select * from T Where (predicate)
+            if (includes is not null)
+                foreach (var include in includes)
+                    query = query.Include(include);
+            return await query.ToListAsync();
+        }
+        //public async Task SaveAsync()
+        //{
+        //    await _context.SaveChangesAsync();
+        //}
+
+
     }
 }

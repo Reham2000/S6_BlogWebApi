@@ -13,14 +13,20 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // Database connection
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
+    options
+    //.UseLazyLoadingProxies()
+    .UseSqlServer(
         builder.Configuration.GetConnectionString("BlogDB")
         )
 );
 
 // DI
-builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped(typeof(IGenaricReposatory<>), typeof(GenaricReposatory<>));
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+//builder.Services.AddTransient<ICategoryService, CategoryService>();
+//builder.Services.AddSingleton<ICategoryService, CategoryService>();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

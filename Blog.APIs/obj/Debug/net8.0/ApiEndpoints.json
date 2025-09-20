@@ -273,5 +273,15 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Blog.APIs.Controllers.PostsController",
+    "Method": "NewGetAll",
+    "RelativePath": "api/Posts/NewAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

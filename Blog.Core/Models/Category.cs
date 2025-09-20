@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Blog.Core.Models
@@ -18,7 +19,8 @@ namespace Blog.Core.Models
         public string Name { get; set; }
 
         // relations
-        public ICollection<Post> Posts { get; set; } = new List<Post>();
+        
+        public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
 
     }
 }

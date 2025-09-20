@@ -24,8 +24,8 @@ namespace Blog.Core.Models
         public string Password { get; set; }
 
         // relations
-        public ICollection<Post> Posts { get; set; } = new List<Post>();
-        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+        public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
+        public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
     }
 }

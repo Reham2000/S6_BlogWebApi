@@ -3,6 +3,7 @@ using Blog.Core.Interfaces;
 using Blog.Core.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq.Expressions;
 
 namespace Blog.APIs.Controllers
 {
@@ -11,17 +12,22 @@ namespace Blog.APIs.Controllers
     public class PostsController : ControllerBase
     {
         // DI
-        private readonly IGenaricReposatory<Post> _posts;
-        public PostsController(IGenaricReposatory<Post> posts)
+        //private readonly IGenaricReposatory<Post> _posts;
+        //public PostsController(IGenaricReposatory<Post> posts)
+        //{
+        //    _posts = posts;
+        //}
+        private readonly IUnitOfWork _unitOfWork;
+        public PostsController(IUnitOfWork unitOfWork)
         {
-            _posts = posts;
+            _unitOfWork = unitOfWork;
         }
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             try
             {
-                var Posts = await _posts.GetAllAsync();
+                var Posts = await _unitOfWork.Posts.GetAllAsync();
                 if(Posts == null || !Posts.Any())
                     return NotFound(new
                     {
@@ -46,12 +52,70 @@ namespace Blog.APIs.Controllers
                 });
             }
         }
+        [HttpGet("NewAll")]
+        public async Task<IActionResult> NewGetAll()
+        {
+            try
+            {
+                var Posts = await _unitOfWork.Posts.GetAllAsync(
+                    //predicate: p => p.CategoryId == 1,
+                    includes: new Expression<Func<Post, object>>[]
+                    {
+                        p => p.User,
+                        p => p.Category,
+                        p => p.Comments
+                    }
+                    );
+                if (Posts == null || !Posts.Any())
+                    return NotFound(new
+                    {
+                        StatusCode = StatusCodes.Status404NotFound,
+                        Message = "Posts Not Found",
+                        Data = new List<Post>()
+                    });
+                return Ok(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "Date Retrived Successfully",
+                    Data = Posts.Select(p => new 
+                    {
+                        Id = p.Id,
+                        Title = p.Title,
+                        Content = p.Content,
+                        CreatedAt = p.CreatedAt,
+                        UserId = p.UserId,
+                        UserName = p.User.UserName,//
+                        CategoryId = p.CategoryId,
+                        CategoryName = p.Category.Name, //
+                        Comments = p.Comments.Select(c => new 
+                        {
+                            Id = c.Id,
+                            Content = c.Content,
+                            CreatedAt = c.CreatedAt,
+                            UserId = c.UserId,
+                            UserName = c.User.UserName,
+                            PostId = c.PostId
+                        }),//
+
+                    })
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "An Error Occuered While Retriving data",
+                    Error = ex.Message
+                });
+            }
+        }
         [HttpGet("GetByCategoryId/{id}")]
         public async Task<IActionResult> GetByCategoryId(int id)
         {
             try
             {
-                var Posts = await _posts.FindAsync(p => p.CategoryId == id);
+                var Posts = await _unitOfWork.Posts.FindAsync(p => p.CategoryId == id);
                 if (Posts is null || !Posts.Any())
                     return NotFound(new
                     {
@@ -81,7 +145,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var Posts = await _posts.FindAsync(p => p.UserId == id);
+                var Posts = await _unitOfWork.Posts.FindAsync(p => p.UserId == id);
                 if (Posts is null || !Posts.Any())
                     return NotFound(new
                     {
@@ -111,7 +175,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var Post = await _posts.GetByIdAsync(id);
+                var Post = await _unitOfWork.Posts.GetByIdAsync(id);
                 if(Post is null)
                 {
                     return NotFound(new
@@ -158,8 +222,8 @@ namespace Blog.APIs.Controllers
                     CategoryId = postDTo.CategoryId,
                     UserId = postDTo.UserId
                 };
-                await _posts.CreateAsync(Post);
-                await _posts.SaveAsync();
+                await _unitOfWork.Posts.CreateAsync(Post);
+                await _unitOfWork.SaveAsync();
                 return StatusCode(201, new
                 {
                     StatusCode = StatusCodes.Status201Created,
@@ -183,7 +247,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var OldPost = await _posts.GetByIdAsync(postDTo.Id);
+                var OldPost = await _unitOfWork.Posts.GetByIdAsync(postDTo.Id);
                 if (OldPost is null)
                     return NotFound(new
                     {
@@ -201,8 +265,8 @@ namespace Blog.APIs.Controllers
                 OldPost.Title = postDTo.Title;
                 OldPost.Content = postDTo.Content;
                 OldPost.CategoryId = postDTo.CategoryId;
-                _posts.Update(OldPost);
-                await _posts.SaveAsync();
+                _unitOfWork.Posts.Update(OldPost);
+                await _unitOfWork.SaveAsync();
                 return NoContent();
 
             }
@@ -222,7 +286,7 @@ namespace Blog.APIs.Controllers
         {
             try
             {
-                var Post = await _posts.GetByIdAsync(id);
+                var Post = await _unitOfWork.Posts.GetByIdAsync(id);
                 if (Post is null)
                     return NotFound(new
                     {
@@ -230,8 +294,8 @@ namespace Blog.APIs.Controllers
                         Message = "Post Not Found",
 
                     });
-                _posts.Delete(Post);
-                await _posts.SaveAsync();
+                _unitOfWork.Posts.Delete(Post);
+                await _unitOfWork.SaveAsync();
                 return NoContent();
             }
             catch (Exception ex)

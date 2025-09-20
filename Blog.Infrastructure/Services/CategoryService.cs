@@ -21,7 +21,9 @@ namespace Blog.Infrastructure.Services
         }
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
-            var Categories = await _context.Categories.ToListAsync();
+            var Categories = await _context.Categories
+                .Include(c => c.Posts)
+                .ToListAsync();
             //var Categories =  _context.Categories.Select(cat => new Category
             //{
             //    Name = cat.Name
@@ -39,6 +41,11 @@ namespace Blog.Infrastructure.Services
         }
         public async Task<Category> GetByIdAsync(int id)
         {
+            //var Category = await _context.Categories.FindAsync(id);
+            //// Explict  loading
+            //await _context.Entry(Category).Collection(c => c.Posts).LoadAsync();
+            //return Category;
+
             return await _context.Categories.FindAsync(id);
             //return await _context.Categories.FirstAsync(c => c.CatId == id);
             //return await _context.Categories.LastAsync(c => c.CatId == id);
