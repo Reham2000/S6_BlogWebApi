@@ -1,6 +1,8 @@
 using Blog.Core.Interfaces;
+using Blog.Core.Models;
 using Blog.Infrastructure.Data;
 using Blog.Infrastructure.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("BlogDB")
         )
 );
+
+// add Identity
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>();
+
 
 // DI
 builder.Services.AddScoped(typeof(IGenaricReposatory<>), typeof(GenaricReposatory<>));

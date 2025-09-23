@@ -1,6 +1,7 @@
 ﻿using Blog.Core.DTos;
 using Blog.Core.Interfaces;
 using Blog.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
@@ -9,6 +10,7 @@ namespace Blog.APIs.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PostsController : ControllerBase
     {
         // DI
@@ -52,6 +54,7 @@ namespace Blog.APIs.Controllers
                 });
             }
         }
+
         [HttpGet("NewAll")]
         public async Task<IActionResult> NewGetAll()
         {
@@ -141,7 +144,7 @@ namespace Blog.APIs.Controllers
             }
         }
         [HttpGet("GetByUserId/{id}")]
-        public async Task<IActionResult> GetByUserId(int id)
+        public async Task<IActionResult> GetByUserId(string id)
         {
             try
             {

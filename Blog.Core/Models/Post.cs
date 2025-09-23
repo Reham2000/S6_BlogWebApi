@@ -19,7 +19,7 @@ namespace Blog.Core.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         // Relations
         // 1. User  1 user -> M Posts
-        public int UserId { get; set; }
+        public string UserId { get; set; }
        
         public virtual User User { get; set; }
         // 2. Category  [ 1 category  -> M Posts]

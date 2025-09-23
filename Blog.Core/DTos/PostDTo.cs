@@ -18,7 +18,7 @@ namespace Blog.Core.DTos
         public string Content { get; set; }
         // Relations
         // 1. User  1 user -> M Posts
-        public int UserId { get; set; }
+        public string UserId { get; set; }
        
         // 2. Category  [ 1 category  -> M Posts]
         public int CategoryId { get; set; }

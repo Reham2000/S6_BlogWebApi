@@ -18,7 +18,7 @@ namespace Blog.Core.Models
 
         // Relations
         // 1. User
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public virtual User User { get; set; }
         // 2. Post
         public int PostId { get; set; }
