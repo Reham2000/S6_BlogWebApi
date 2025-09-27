@@ -10,7 +10,7 @@ namespace Blog.APIs.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class PostsController : ControllerBase
     {
         // DI
@@ -24,6 +24,7 @@ namespace Blog.APIs.Controllers
         {
             _unitOfWork = unitOfWork;
         }
+        [Authorize(Policy = "AllRoles")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -54,7 +55,7 @@ namespace Blog.APIs.Controllers
                 });
             }
         }
-
+        [Authorize(Roles = "Admin,Reader")]
         [HttpGet("NewAll")]
         public async Task<IActionResult> NewGetAll()
         {
@@ -173,6 +174,7 @@ namespace Blog.APIs.Controllers
                 });
             }
         }
+        [Authorize(Policy = "ManageOnly")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -204,7 +206,7 @@ namespace Blog.APIs.Controllers
                 });
             }
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create (PostDTo postDTo)
         {

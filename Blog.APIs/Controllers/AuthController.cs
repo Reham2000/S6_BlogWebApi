@@ -41,6 +41,7 @@ namespace Blog.APIs.Controllers
                     IdentityResult Result = await _userManager.CreateAsync(NewUser,model.Password);
                     if(Result.Succeeded)
                     {
+                        await _userManager.AddToRoleAsync(NewUser, "Reader");
                         return StatusCode(201, new
                         {
                             StatusCode = 201,
@@ -85,7 +86,7 @@ namespace Blog.APIs.Controllers
                             Claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
 
                             // Roles
-                            Claims.Add(new Claim(ClaimTypes.Role, "User"));
+                            //Claims.Add(new Claim(ClaimTypes.Role, "User"));
 
                             var Roles = await _userManager.GetRolesAsync(User);
                             foreach(var Role in Roles)
@@ -107,11 +108,15 @@ namespace Blog.APIs.Controllers
                                     expires: DateTime.Now.AddMinutes(10),
                                     signingCredentials: signingCredentials
                                 );
+                            var tokenValue = new JwtSecurityTokenHandler().WriteToken(Token);
                             var _token = new
                             {
-                                Token =new JwtSecurityTokenHandler().WriteToken(Token),
+                                Token = tokenValue ,
                                 Expiration = Token.ValidTo
                             };
+                            // add Token to DB
+                            await _userManager.SetAuthenticationTokenAsync(
+                                User, "MyToken", "AccessToken", tokenValue);
                             return Ok(_token);
                         }
                         else
